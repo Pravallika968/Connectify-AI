@@ -1,0 +1,564 @@
+/* ============================================
+   MODERN DASHBOARD - COMPLETE REDESIGN
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #a78bfa;
+  --primary-dark: #8b5cf6;
+  --primary-light: #c4b5fd;
+  --secondary-color: #f0abfc;
+  --accent-color: #fbbf24;
+  --success-color: #34d399;
+  --danger-color: #f87171;
+  --dark-bg: #1e1b4b;
+  --light-bg: #fef7ed;
+  --card-bg: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 1px 3px rgba(167, 139, 250, 0.1);
+  --shadow-md: 0 4px 12px rgba(167, 139, 250, 0.15);
+  --shadow-lg: 0 10px 30px rgba(167, 139, 250, 0.2);
+}
+
+.dashboard-container {
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 50%, #fdba74 100%);
+  padding: 40px 20px;
+}
+
+/* ============ WELCOME SECTION ============ */
+.welcome-section {
+  max-width: 1200px;
+  margin: 0 auto 50px;
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-section h1 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.welcome-section > p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+/* Notifications List */
+.notifications-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.notifications-list li {
+  background: linear-gradient(135deg, #a78bfa 0%, #f0abfc 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notifications-list li::before {
+  content: "•";
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+
+.notifications-list li.clickable {
+  cursor: pointer;
+  opacity: 0.95;
+}
+
+.notifications-list li.clickable:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(167, 139, 250, 0.4);
+}
+
+/* Friends List Popup */
+.friends-list {
+  background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 100%);
+  border: 2px solid var(--primary-color);
+  border-radius: 16px;
+  padding: 25px;
+  animation: slideDown 0.3s ease-out;
+  margin-top: 20px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 600px;
+  }
+}
+
+.friends-list h3 {
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.friends-list ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.friends-list ul::-webkit-scrollbar {
+  width: 6px;
+}
+
+.friends-list ul::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+.friends-list li {
+  display: flex;
+  align-items: center;
+}
+
+.friends-list label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.friends-list label:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.friends-list input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+.friends-list label {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.add-friend-btn {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.add-friend-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.add-friend-btn:active {
+  transform: scale(0.98);
+}
+
+/* ============ FEATURES SECTION ============ */
+.features-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.features-section h2 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+/* ============ FEATURE CARD STYLING ============ */
+.feature-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.5s ease-out backwards;
+}
+
+.feature-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.feature-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.feature-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.feature-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.feature-card:hover::before {
+  opacity: 0.1;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(167, 139, 250, 0.3);
+  border-color: var(--primary-color);
+}
+
+.feature-card h3 {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.feature-card-button {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(167, 139, 250, 0.3);
+}
+
+.feature-card-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.4);
+}
+
+.feature-card-button:active {
+  transform: scale(0.98);
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 20px 15px;
+  }
+
+  .welcome-section {
+    padding: 25px;
+    margin-bottom: 30px;
+  }
+
+  .welcome-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .features-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .notifications-list {
+    grid-template-columns: 1fr;
+  }
+
+  .friends-list ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============ MODAL STYLES ============ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+.modal-content h3 {
+  color: var(--text-primary);
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.friends-selection {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 15px;
+  background: #f9f9f9;
+}
+
+.friend-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.friend-checkbox:hover {
+  background: rgba(167, 139, 250, 0.1);
+}
+
+.friend-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.cancel-btn,
+.create-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.cancel-btn {
+  background: #f3f4f6;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.cancel-btn:hover {
+  background: #e5e7eb;
+}
+
+.create-btn {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(167, 139, 250, 0.3);
+}
+
+.create-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.4);
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 15px 10px;
+  }
+
+  .welcome-section h1 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+
+  .welcome-section > p {
+    font-size: 0.95rem;
+  }
+
+  .welcome-section {
+    padding: 20px;
+  }
+
+  .features-grid {
+    gap: 12px;
+  }
+
+  .feature-card {
+    padding: 20px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .feature-card-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .friends-list ul {
+    grid-template-columns: 1fr;
+    max-height: 300px;
+  }
+
+  .modal-content {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .cancel-btn,
+  .create-btn {
+    width: 100%;
+  }
+}

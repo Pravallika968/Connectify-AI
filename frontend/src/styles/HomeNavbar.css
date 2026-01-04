@@ -1,0 +1,37 @@
+.home-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #007bff;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.home-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: default;
+}
+
+.home-nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.home-nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.home-nav-links li a:hover {
+  color: #ffd700;
+  transform: scale(1.05);
+}

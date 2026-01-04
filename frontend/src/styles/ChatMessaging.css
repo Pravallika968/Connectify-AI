@@ -1,0 +1,701 @@
+
+.chat-app {
+  display: flex;
+  height: 90vh;
+  width: 90%;
+  margin: 30px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  font-family: "Poppins", sans-serif;
+}
+
+.chat-sidebar {
+  width: 30%;
+  background: #f8f9fa;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #0078ff;
+  color: #fff;
+}
+
+.friends-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.friend-item {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.friend-item:hover {
+  background: #e9ecef;
+}
+
+.friend-item.active {
+  background: #0078ff;
+  color: #fff;
+}
+
+.no-friends {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}
+
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fdfdfd;
+}
+
+.chat-welcome {
+  margin: auto;
+  text-align: center;
+  color: #555;
+}
+
+.chat-welcome img {
+  width: 150px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.chat-header {
+  padding: 15px;
+  background: #0078ff;
+  color: white;
+  font-weight: 500;
+}
+
+.chat-box {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* .chat-message {
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 75%;
+  font-size: 15px;
+  word-wrap: break-word;
+}
+
+.chat-message.sent {
+  align-self: flex-end;
+  background: #0078ff;
+  color: white;
+  border-bottom-right-radius: 0;
+}
+
+.chat-message.received {
+  align-self: flex-start;
+  background: #f1f1f1;
+  color: #333;
+  border-bottom-left-radius: 0;
+} */
+
+.chat-input {
+  display: flex;
+  padding: 10px;
+  position: relative;
+  border-top: 1px solid #ddd;
+  background: #fafafa;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  font-size: 15px;
+}
+
+.chat-input button {
+  margin-left: 10px;
+  padding: 10px 20px;
+  background: #0078ff;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background: #005fcc;
+}
+
+.friends-list::-webkit-scrollbar,
+.chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.friends-list::-webkit-scrollbar-thumb,
+.chat-box::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.friend-item:hover {
+  background: #e9ecef;
+}
+
+.friend-item.active {
+  background: #0078ff;
+  color: #fff;
+}
+
+.friend-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  border: 2px solid #0078ff;
+}
+
+
+/* .chat-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #0078ff;
+  color: white;
+  font-weight: 500;
+}
+
+.chat-header-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  border: 2px solid #fff;
+} */
+
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 12px 12px 0 0;
+}
+
+.chat-header-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.chat-header-info h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.chat-status {
+  font-size: 13px;
+  color: #e6e6e6;
+  margin-top: 2px;
+}
+
+/* .seen-icon {
+  font-size: 12px;
+  margin-left: 5px;
+  color: #007bff;
+} */
+
+
+
+
+/* Message layout
+.chat-message {
+  position: relative;
+  margin: 8px 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 75%;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+
+.chat-message.sent {
+  align-self: flex-end;
+  background-color: #dcf8c6; 
+}
+
+.chat-message.received {
+  align-self: flex-start;
+  background-color: #fff;
+}
+
+.message-content {
+  font-size: 15px;
+}
+
+.message-status {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  margin: 0;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.ticks {
+  font-weight: bold;
+  letter-spacing: -3px;
+  user-select: none;
+} */
+
+
+
+/* Message layout */
+.chat-message {
+  position: relative;
+  margin: 8px 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 75%;
+  padding: 8px 10px 22px; /* bottom padding for footer space */
+  border-radius: 10px;
+  word-wrap: break-word;
+}
+
+/* Sent and received bubbles */
+.chat-message.sent {
+  align-self: flex-end;
+  background-color: #dcf8c6; /* WhatsApp-like green bubble */
+}
+
+.chat-message.received {
+  align-self: flex-start;
+  background-color: #ffffff;
+}
+
+/* Message text area */
+.message-content {
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* ✅ Time + ticks container (bottom-right of message) */
+.message-footer {
+  position: absolute;
+  bottom: 4px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: gray;
+}
+
+/* ✅ Time styling */
+.message-time {
+  font-size: 12px;
+  color: #666;
+}
+
+/* ✅ Status ticks */
+.message-status {
+  font-size: 12px;
+  margin-left: 3px;
+}
+
+.ticks {
+  font-weight: bold;
+  letter-spacing: -3px;
+  user-select: none;
+}
+
+.ticks.delivered {
+  color: gray;
+}
+
+.ticks.seen {
+  color: #34b7f1; /* WhatsApp blue */
+}
+
+/* Images and PDFs inside messages */
+.chat-image {
+  max-width: 200px;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.chat-pdf-file {
+  color: #0078ff;
+  text-decoration: underline;
+  margin-top: 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+
+/* small arrow/menu button that appears at top-right of message */
+.message-arrow {
+  position: absolute;
+  top: 6px;
+  right: 18px; /* moved closer to the right edge (near the ticks/status) */
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.08);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  opacity: 0;
+  transition: opacity 120ms ease, transform 120ms ease;
+  z-index: 5;
+}
+
+.chat-message:hover .message-arrow,
+.chat-message:focus-within .message-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.chat-message.sent {
+  padding-right: 88px; 
+}
+
+.chat-message.received {
+  padding-right: 64px;
+}
+
+
+.ticks.delivered {
+  color: gray;
+}
+
+.ticks.seen {
+  color: #34b7f1; 
+}
+
+
+.unread-badge {
+  background-color: #25d366; /* WhatsApp green */
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 4px 8px;
+  margin-left: auto;
+  min-width: 22px;
+  text-align: center;
+}
+
+
+.upload-btn {
+  font-size: 24px;
+  cursor: pointer;
+  color: #ff6600;
+  margin-right: 10px;
+}
+
+.chat-image {
+  max-width: 200px;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.chat-pdf-link {
+  color: #007bff;
+  text-decoration: underline;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+
+
+.message-menu .menu-item {
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.message-menu .menu-item:hover {
+  background: #444;
+}
+
+/* Share popup */
+.share-popup {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2000;
+}
+.share-popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 320px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.friends-share-list {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.share-friend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.share-friend-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.share-popup-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.share-popup-actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #0078ff;
+  color: white;
+  cursor: pointer;
+}
+.share-popup-actions button:hover {
+  opacity: 0.9;
+}
+
+
+
+.mic-btn {
+  background: transparent;
+  border: none;
+  color: #ff8800;
+  font-size: 18px;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.mic-btn:hover {
+  transform: scale(1.2);
+}
+
+.mic-btn.recording {
+  color: red;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* 
+
+.emoji-btn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  margin: 0 5px;
+  cursor: pointer;
+  color: #ffa500;
+  transition: 0.2s;
+}
+
+.emoji-btn:hover {
+  transform: scale(1.2);
+}
+
+.emoji-picker-popup {
+  position: absolute;
+  bottom: 70px;
+  left: 60px;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+} */
+
+
+/* 
+
+.emoji-picker-popup {
+  position: absolute;
+  bottom: 70px; 
+  left: 20px;
+  z-index: 9999;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  background: white;
+  transform: scale(0.95);
+  transition: all 0.2s ease-in-out;
+}
+
+.emoji-picker-popup .EmojiPickerReact {
+  width: 280px !important;
+  height: 340px !important;
+  background-color: #fff !important;
+  border: none !important;
+  border-radius: 12px !important;
+}
+
+.emoji-btn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  margin: 0 6px;
+  cursor: pointer;
+  color: #ff9500;
+  transition: 0.2s;
+}
+
+.emoji-btn:hover {
+  transform: scale(1.2);
+  color: #ffb700;
+}
+
+
+@media (max-width: 600px) {
+  .emoji-picker-popup {
+    left: 10px;
+    bottom: 110px;
+    width: 95%;
+  }
+  .emoji-picker-popup .EmojiPickerReact {
+    width: 100% !important;
+    height: 300px !important;
+  }
+} */
+
+
+
+
+
+
+
+
+
+
+/* 📍 Emoji Picker Popup — aligned to the right above input */
+.emoji-picker-popup {
+  position: absolute;
+  bottom: 70px; /* appears above input */
+  right: 600px; /* moved to right side */
+  z-index: 1000;
+  border-radius: 12px;
+  width: "600px";
+  height: "400px"; 
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+
+/* 🟢 Emoji Picker overall container */
+.EmojiPickerReact {
+  background: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 320px !important;
+  font-family: "Inter", sans-serif !important;
+}
+
+/* 🏷️ Category labels (like "Smileys", "Animals" etc.) */
+.EmojiPickerReact .epr-emoji-category-label {
+  background: #ffffff !important;
+  color: #444 !important;
+  font-weight: 600;
+  font-size: 13px;
+  border-bottom: 1px solid #eee !important;
+  padding: 6px 10px !important;
+}
+
+/* 🧭 Category navigation icons row */
+.EmojiPickerReact .epr-category-nav {
+  background: #ffffff !important;
+  border-top: 1px solid #eee !important;
+  padding: 4px 0 !important;
+}
+
+/* 😀 Emoji items */
+.EmojiPickerReact .epr-emoji {
+  background: transparent !important;
+  border-radius: 8px !important;
+  transition: background 0.15s ease;
+  padding: 4px !important;
+}
+
+/* 🩶 Hover effect like WhatsApp */
+.EmojiPickerReact .epr-emoji:hover {
+  background: #f5f5f5 !important;
+}
+
+/* 🔍 Search bar inside picker */
+.EmojiPickerReact .epr-search-container input {
+  background: #f9f9f9 !important;
+  border-radius: 8px !important;
+  border: 1px solid #ddd !important;
+  padding: 6px 8px !important;
+  outline: none !important;
+}
+
+/* 🚫 Hide emoji preview footer (like WhatsApp) */
+.EmojiPickerReact .epr-preview {
+  display: none !important;
+}
+
+
+/* Remove blue color from top category icons */
+.EmojiPickerReact .epr-category-nav button {
+  background: transparent !important;
+  border: none !important;
+  filter: grayscale(100%) brightness(0.5);
+  transition: filter 0.2s ease;
+}
+
+/* On hover or active — slightly darker gray (no blue) */
+.EmojiPickerReact .epr-category-nav button:hover,
+.EmojiPickerReact .epr-category-nav button.active {
+  filter: grayscale(0%) brightness(0.3);
+  background: transparent !important;
+}

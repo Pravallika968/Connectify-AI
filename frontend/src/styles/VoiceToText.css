@@ -1,0 +1,91 @@
+.voice-to-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px;
+}
+
+.mic-btn {
+  background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px 2px rgba(238, 9, 121, 0.6);
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.mic-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px 3px rgba(238, 9, 121, 0.7);
+}
+
+.mic-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: 0 0 8px 2px rgba(200, 200, 200, 0.6);
+}
+
+.mic-btn.listening {
+  box-shadow: 0 0 24px 8px rgba(255, 106, 0, 0.8), 0 0 40px 16px rgba(238, 9, 121, 0.6);
+  background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+  animation: pulse-glow 0.8s ease-in-out infinite;
+}
+
+.listening-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 2px solid #ff6a00;
+  animation: pulse 1s infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px 2px rgba(255, 106, 0, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px 4px rgba(238, 9, 121, 0.8));
+  }
+}
+
+.voice-error {
+  color: #ee0979;
+  margin-left: 12px;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+/* Microphone icon styling */
+.mic-btn::before {
+  content: "🎤";
+  font-size: 22px;
+}

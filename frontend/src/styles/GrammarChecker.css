@@ -1,0 +1,278 @@
+/* Grammar Checker Styling */
+.grammar-checker-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.grammar-check-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.grammar-check-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.grammar-check-btn:active {
+  transform: scale(0.95);
+}
+
+/* Grammar Suggestions Popup */
+.grammar-suggestions {
+  position: absolute;
+  bottom: 65px;
+  right: 0;
+  width: 300px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  border: 1px solid #e5e7eb;
+  animation: slideUp 0.3s ease-out;
+}
+
+.grammar-suggestions.success {
+  background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 100%);
+  border-color: #10b981;
+  padding: 16px;
+  text-align: center;
+}
+
+.grammar-suggestions.success p {
+  color: #059669;
+  font-weight: 600;
+  margin: 0;
+}
+
+.suggestions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.suggestions-header h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #1f2937;
+}
+
+.close-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #9ca3af;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #ef4444;
+}
+
+.suggestions-list {
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.suggestion-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 8px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border-left: 3px solid #fbbf24;
+  transition: all 0.2s ease;
+}
+
+.suggestion-item:hover {
+  background: #f3f4f6;
+  border-left-color: #f59e0b;
+}
+
+.suggestion-content {
+  flex: 1;
+}
+
+.suggestion-message {
+  margin: 0 0 6px 0;
+  font-size: 0.85rem;
+  color: #374151;
+  font-weight: 500;
+}
+
+.suggestion-change {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.error {
+  color: #ef4444;
+  font-weight: 600;
+  background: #fee2e2;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.correction {
+  color: #10b981;
+  font-weight: 600;
+  background: #dcfce7;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.suggestion-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.apply-btn,
+.edit-btn,
+.delete-btn,
+.save-btn,
+.cancel-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.apply-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.apply-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.apply-btn:active {
+  transform: translateY(0);
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+}
+
+.edit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.edit-btn:active {
+  transform: translateY(0);
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+}
+
+.delete-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.delete-btn:active {
+  transform: translateY(0);
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.save-btn:active {
+  transform: translateY(0);
+}
+
+.cancel-btn {
+  background: #6b7280;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background: #4b5563;
+}
+
+.edit-input {
+  padding: 4px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.edit-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+/* Scrollbar styling */
+.suggestions-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.suggestions-list::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 10px;
+}
+
+.suggestions-list::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+.suggestions-list::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
